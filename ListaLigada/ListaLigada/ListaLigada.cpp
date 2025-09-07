@@ -153,6 +153,44 @@ void inserirElemento()
 
 void excluirElemento()
 {
+	NO* pAtual = primeiro;
+	NO* pAnt = NULL;
+	int deletar;
+
+	if (primeiro == NULL)
+	{
+		cout << "Sem elementos na lista" << endl;
+		return;
+	}
+
+	cout << "Digite o elemento a ser excluido: ";
+	cin >> deletar;
+	NO* Pesquisa = posicaoElemento(deletar);
+
+	if (Pesquisa == NULL) {
+		cout << "Elemento nao encontrado." << endl;
+		return;
+	}
+
+	else {
+
+		while
+			(pAtual != NULL && pAtual->valor != deletar) {
+			pAnt = pAtual;
+			pAtual = pAtual->prox;
+		}
+
+		if (pAnt == NULL) {
+			primeiro = pAtual->prox;
+		}
+
+		else {
+			pAnt->prox = pAtual->prox;
+		}
+
+		free(pAtual);
+		cout << "Elemento excluido." << endl;
+	}
 
 	
 }
